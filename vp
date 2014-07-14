@@ -1,0 +1,5 @@
+#!/bin/bash
+abspath=`echo $(cd $(dirname $1); pwd)/$(basename $1)`
+tmux select-pane -t 0
+tmux resize-pane -t 0 -y 30
+tmux send-keys "vim $abspath && tmux select-pane -t $TMUX_PANE && tmux resize-pane -t 0 -y 2" Enter
